@@ -1,7 +1,7 @@
 FROM ubuntu:14.04.3
 MAINTAINER custa <custa@126.com>
 
-ENV REFRESHED_AT 2015-12-23
+ENV REFRESHED_AT 2016-09-17
 
 RUN apt-get -y update && \
     apt-get -y upgrade && \
