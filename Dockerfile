@@ -1,14 +1,13 @@
 FROM alpine:latest
-MAINTAINER custa <custa@126.com>
+LABEL maintainer="custa@126.com"
 
-ENV REFRESHED_AT 2017-10-10
+ENV REFRESHED_AT 2020-02-06
 
-RUN apk update && apk add py-pip && pip install --upgrade pip
-RUN pip install shadowsocks
-
-ADD run.sh /run.sh
-RUN chmod +x /run.sh
+RUN apk update && \
+    apk add py-pip && \
+    pip install --upgrade pip && \
+    pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip
 
 EXPOSE 8388
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["ssserver"]
